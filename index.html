@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/style.css" class="rel">
+</head>
+<body>
+
+  <div class="card-cadastro">
+    <h2>Criar Conta</h2>
+    <p>Preencha os dados abaixo para começar</p>
+
+    <form id="cadastroForm" method="post">
+      <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" placeholder="Seu nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Cadastrar</button>
+    </form>
+
+    <div class="footer-text">
+      Já tem uma conta? <a href="#">Faça login</a>
+    </div>
+  </div>
+
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Recebe o e-mail enviado pelo formulário
+    $email = $_POST["email"];
+
+    // Mostra o e-mail recebido
+    echo "E-mail recebido: " . $email;
+}
+  
+  /> 
+
+
+
+
+</body>
+
+
+
+</html>
+
