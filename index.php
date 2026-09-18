@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,10 +11,15 @@
 
     <h1>Dados do Cliente</h1>
 
-    <form>
+    <form action="index.php" method="POST">
 
-        <label>E-mail:</label><br>
-        <input type="email" name="email" required>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required>
+
+        <br><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required>
 
         <br><br>
 
@@ -24,3 +30,4 @@
 </body>
 
 </html>
+```
