@@ -1,59 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="src/style.css" class="rel">
+  <meta charset="UTF-8">
+  <title>Dados do Cliente</title>
 </head>
+
 <body>
 
-  <div class="card-cadastro">
-    <h2>Criar Conta</h2>
-    <p>Preencha os dados abaixo para começar</p>
+  <h1>Dados do Cliente</h1>
 
-    <form id="cadastroForm" method="post">
-      <div class="form-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-      </div>
+  <form method="POST">
 
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-      </div>
+    <label>E-mail:</label><br>
+    <input type="email" name="email" required>
 
-      <button type="submit" class="btn-submit">Cadastrar</button>
-    </form>
+    <br><br>
 
-  </div>
+    <button type="submit">Cadastrar</button>
 
- <?php
+  </form>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<?php
 
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    echo "<h1>Cadastro realizado com sucesso!</h1>";
-    echo "<p>Nome: " . htmlspecialchars($nome) . "</p>";
-    echo "<p>E-mail: " . htmlspecialchars($email) . "</p>";
-    echo "<p>Os dados foram enviados ao servidor.</p>";
+  // Recebe o e-mail enviado pelo formulário
+  $email = $_POST['email'];
+
+  // Obtém a conexão configurada no Render
+  $databaseUrl = getenv("DATABASE_URL");
+
+  // Conecta ao PostgreSQL
+  $conexao = pg_connect($databaseUrl);
+
+  // Salva o e-mail no banco
+  pg_query_params(
+    $conexao,
+    "INSERT INTO usuarios (email) VALUES ($1)",
+    array($email)
+  );
+
+  echo "Cadastro realizado com sucesso!";
 
 }
 
 ?>
 
-
-  
-  /> 
-
-
-
-
 </body>
 
-
-
 </html>
-

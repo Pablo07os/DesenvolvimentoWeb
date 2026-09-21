@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dados do Cliente</title>
+    <link rel="stylesheet" href="src/style.css" class="rel">
 </head>
 
 <body>
