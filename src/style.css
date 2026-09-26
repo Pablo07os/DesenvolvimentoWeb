@@ -116,3 +116,9 @@
        /* max-height: 100vh; */
        object-fit: contain;
     }
+
+    .sucesso {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+}

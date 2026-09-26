@@ -64,8 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     array($nome, $email)
 );
 
-    echo "Cadastro realizado com sucesso!";
-}
+    echo "<p class='sucesso'>Cadastro realizado com sucesso!</p>";}
 
 ?>
 
