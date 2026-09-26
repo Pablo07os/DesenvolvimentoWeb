@@ -3,29 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dados do Cliente</title>
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="src/style.css" class="rel">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <h1>Dados do Cliente</h1>
+    <section>
+            
+    <div class="card">
 
-    <form method="POST">
+        <h1> Cadastre-se aqui</h1>
+
+        <form method="POST" class="form-group">
+
+        <h3>Insira seu nome e email</h3>    
         
-        <label>Nome:</label><br>
+       <input type="text" name="nome" placeholder="Seu nome" required>
+
+       <input type="email" name="email" placeholder="Seu e-mail" required>
+
         
-        <input type="text" name="nome" required>
+        <button class="btn-submit" type="submit">Cadastrar</button>
 
-        <label>E-mail:</label><br>
+        </form>
 
-        <input type="email" name="email" required>
 
-        <br><br>
 
-        <button type="submit">Cadastrar</button>
 
-    </form>
+    </div>
 
+    </section>
+
+
+    <div class="imagem-inicial">
+
+            <img src="src/images/login-welcome-character-1.png" alt="">
+
+    </div>
+
+   
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
