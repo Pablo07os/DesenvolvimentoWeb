@@ -1,26 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Dados do Cliente</title>
-    <link rel="stylesheet" href="src/style.css" class="rel">
 </head>
 
 <body>
 
     <h1>Dados do Cliente</h1>
 
-    <form action="index.php" method="POST" onsubmit="confirmarCadastro()">
+    <form method="POST">
+        
+        <label>Nome:</label><br>
+        
+        <input type="text" name="nome" required>
 
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required>
+        <label>E-mail:</label><br>
 
-        <br><br>
-
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required>
+        <input type="email" name="email" required>
 
         <br><br>
 
@@ -28,9 +26,29 @@
 
     </form>
 
-    <script> function confirmarCadastro() { alert("Dados enviados ao servidor com sucesso!"); } </script>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+
+    $databaseUrl = getenv("DATABASE_URL");
+
+    $conexao = pg_connect($databaseUrl);
+
+    pg_query_params(
+    $conexao,
+    "INSERT INTO usuarios (nome, email) VALUES ($1, $2)",
+    array($nome, $email)
+);
+
+    echo "Cadastro realizado com sucesso!";
+}
+
+?>
 
 </body>
 
 </html>
-
